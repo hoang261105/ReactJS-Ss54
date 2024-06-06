@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sumWithPromise(num) {
+        const promise = new Promise((resolve, reject) => {
+          if (!Array.isArray(num)) {
+            reject("Tham số tryền vào phải là 1 mảng");
+          } else {
+            let sum = 0;
+            for (let i of num) {
+              if (typeof i !== "number") {
+                reject("Mảng phải chứa các số nguyên");
+              }
+              sum += i;
+            }
+            resolve(sum);
+          }
+        });
+        return promise;
+      }
+
+      sumWithPromise([1, 2, 3, 4, 5])
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((err) => {
+          console.log("Lỗi", err);
+        });
+
+      sumWithPromise([1, 2, "a", 4, 5])
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((err) => {
+          console.log("Lỗi", err);
+        });
+    </script>
+  </body>
+</html>

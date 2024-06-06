@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function countDown(n) {
+        let count = n;
+        const myPromise = new Promise((resolve, reject) => {
+          let interval = setInterval(() => {
+            console.log(count);
+            count--;
+
+            if (count == 0) {
+              clearInterval(interval);
+              resolve("Hoàn thành quá trình đếm");
+            }
+          }, 1000);
+        });
+
+        return myPromise;
+      }
+
+      countDown(10).then((result) => console.log(result));
+    </script>
+  </body>
+</html>

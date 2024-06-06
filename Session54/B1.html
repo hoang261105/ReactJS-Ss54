@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function calculateBMI(weight, height) {
+        try {
+          if (typeof weight !== "number" || typeof height !== "number") {
+            console.log("Vui lòng nhập lại");
+          }
+          if (weight <= 0 || height <= 0) {
+            console.log("Cân nặng và chiều cao phải lớn hơn 0");
+          }
+          const result = weight / (height * height);
+          return result.toFixed(2);
+        } catch (error) {
+          console.log("Lỗi", error);
+          return null;
+        }
+      }
+      console.log(calculateBMI(70, -1.75));
+    </script>
+  </body>
+</html>

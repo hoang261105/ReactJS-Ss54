@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sortArrayWithPromise(arr) {
+        const myPromise = new Promise((resolve, reject) => {
+          arr.sort((a, b) => {
+            return a - b;
+          });
+          resolve(arr);
+        });
+        return myPromise;
+      }
+
+      sortArrayWithPromise([1, 4, 5, 8, 6]).then((result) =>
+        console.log(result)
+      );
+    </script>
+  </body>
+</html>
